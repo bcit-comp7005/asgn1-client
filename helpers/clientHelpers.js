@@ -36,7 +36,7 @@ const getFileList = async () => {
 const getServerAddress = () => {
   const serverAddress = argv.s || defaultServerAddress;
   // Check if the command line arguments have a server address and that it is valid
-  if (argv.hasOwnProperty('s') && !(typeof fileDir === 'string')) {
+  if (argv.hasOwnProperty('s') && !(typeof serverAddress === 'string')) {
     console.log('Invalid server argument');
     process.exit(9);
   }
@@ -59,10 +59,6 @@ const getServerPort = () => {
         : 'Invalid argument for port.',
     );
     // Exit the program
-    process.exit(9);
-  }
-  if (port < 1025) {
-    console.error(`Port ${port} is within the reserved ports. Please enter a higher port`);
     process.exit(9);
   }
   return port;

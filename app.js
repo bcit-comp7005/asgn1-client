@@ -6,6 +6,7 @@ const { getFileList, getServerAddress, getServerPort } = require('./helpers/clie
 
 const form = new FormData();
 const server = getServerAddress();
+console.log(`Server set to ${server}`);
 const port = getServerPort();
 
 getFileList()
@@ -30,5 +31,8 @@ getFileList()
       } else {
         console.error(`An error occurred: ${res.statusCode}`);
       }
+    });
+    request.on('error', (error) => {
+      console.error(`An error occurred: ${error.message}`);
     });
   });
