@@ -27,7 +27,7 @@ getFileList()
     form.pipe(request);
     request.on('response', (res) => {
       if (res.statusCode === 200) {
-        console.log(`${res.statusCode} - Successfully sent files: ${files.join(',')}`);
+        console.log(`${res.statusCode} - Successfully sent files: ${files.join(', ')}`);
       } else {
         console.error(`An error occurred: ${res.statusCode}`);
       }
